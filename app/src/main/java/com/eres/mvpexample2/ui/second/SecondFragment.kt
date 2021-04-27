@@ -49,6 +49,7 @@ class SecondFragment : MvpAppCompatFragment(R.layout.second_fragment), SecondVie
         (requireActivity().application as AppApplication).appComponent.getActivityComponentFactory()
             .create().inject(presenter)
 
+        presenter.setOwner(this)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -75,7 +76,11 @@ class SecondFragment : MvpAppCompatFragment(R.layout.second_fragment), SecondVie
     private fun navigateToThirdFragment(timestamp: String, date: String) {
 
         val action =
-            SecondFragmentDirections.actionSecondFragmentToThirdFragment(timestamp, date, args.method)
+            SecondFragmentDirections.actionSecondFragmentToThirdFragment(
+                timestamp,
+                date,
+                args.method
+            )
         findNavController().navigate(action)
 
     }
