@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grpah"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.eres.mvpexample2.ui.first.FirstFragment"
+        android:label="Prayer Times"
+        tools:layout="@layout/first_fragment">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.eres.mvpexample2.ui.second.SecondFragment"
+        android:label="Choose Date"
+        tools:layout="@layout/second_fragment">
+        <argument
+            android:name="month"
+            app:argType="integer" />
+        <argument
+            android:name="year"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="method"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.eres.mvpexample2.ui.third.ThirdFragment"
+        android:label="Prayer Times {date}"
+        tools:layout="@layout/third_fragment">
+        <argument
+            android:name="timestamp"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <argument
+            android:name="method"
+            app:argType="integer" />
+    </fragment>
+</navigation>
